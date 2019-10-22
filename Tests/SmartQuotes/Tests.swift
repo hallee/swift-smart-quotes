@@ -3,8 +3,16 @@ import XCTest
 
 final class SmartQuotesTests: XCTestCase {
 
-    func testExample() {
+    private let testCases: [String: String] = [
+        "'em": "’em",
+        "Aren't": "Aren’t",
+        "Got 'em": "Got ’em"
+    ]
 
+    func testSmartQuotes() {
+        for (variable, expected) in testCases {
+            XCTAssertEqual(variable.withSmartQuotes, expected)
+        }
     }
 
 }
