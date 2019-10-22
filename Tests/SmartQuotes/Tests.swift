@@ -4,6 +4,8 @@ import XCTest
 final class SmartQuotesTests: XCTestCase {
 
     private let testCases: [String: String] = [
+        "'93": "’93",
+        "\"'93\"": "“’93”",
         "'em": "’em",
         "Aren't": "Aren’t",
         "Got 'em": "Got ’em"
