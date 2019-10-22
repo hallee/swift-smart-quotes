@@ -8,6 +8,6 @@ let package = Package(
     ],
     targets: [
         .target(name: "SmartQuotes", path: "Sources"),
-        .testTarget(name: "SmartQuotesTests", dependencies: ["SmartQuotes"], path: "Tests")
+        .testTarget(name: "SmartQuotesTests", dependencies: ["SmartQuotes"], path: "Tests/SmartQuotes")
     ]
 )
