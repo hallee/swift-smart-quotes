@@ -15,9 +15,10 @@ final class SmartQuotesTests: XCTestCase {
         "\"Europe's debt crisis\": not good":
             "“Europe’s debt crisis”: not good",
         "got 'em": "got ’em",
-        "got 'em good": "got ’em good",
         "\"got 'em\"": "“got ’em”",
-        "ma'am": "ma’am"
+        "she's got 'em": "she’s got ’em",
+        "ma'am": "ma’am",
+        "'ma'am'": "‘ma’am’"
     ]
 
     func testSmartQuotes() {

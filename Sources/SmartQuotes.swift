@@ -60,6 +60,7 @@ public extension String {
         var index: String.Index
 
         var curlyApostrophe: String.Element {
+            if followingStringUntilWhitespace == "s" { return apostrophe.close }
             if precedingStringUntilWhitespace == nil {
                 return apostrophe.open
             }
