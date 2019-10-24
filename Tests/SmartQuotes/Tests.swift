@@ -6,6 +6,7 @@ final class SmartQuotesTests: XCTestCase {
     private let testCases: [String: String] = [
         "'93": "’93",
         "\"'93\"": "“’93”",
+        "'90s 'high crime'": "’90s ‘high crime’",
         "and then she blurted, \"I thought you said, 'I don't like '80s music'?\"":
             "and then she blurted, “I thought you said, ‘I don’t like ’80s music’?”",
         "and then she blurted, \"I thought you said, 'I like '80s music'?\"":
@@ -14,9 +15,12 @@ final class SmartQuotesTests: XCTestCase {
         "'em": "’em",
         "\"Europe's debt crisis\": not good":
             "“Europe’s debt crisis”: not good",
+        "Founders ask themselves: \"Why can't we get features out the door like we used to in the early days?\"":
+            "Founders ask themselves: “Why can’t we get features out the door like we used to in the early days?”",
         "got 'em": "got ’em",
         "\"got 'em\"": "“got ’em”",
         "she's got 'em": "she’s got ’em",
+        "she’s got 'em": "she’s got ’em",
         "ma'am": "ma’am",
         "'ma'am'": "‘ma’am’"
     ]

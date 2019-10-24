@@ -49,6 +49,22 @@ public extension String {
             default: return rawValue
             }
         }
+
+        var closers: [String.Element] {
+            switch self {
+            case .singleDumb, .singleOpen: return [Apostrophe.singleDumb.rawValue, Apostrophe.singleClose.rawValue]
+            case .doubleDumb, .doubleOpen: return [Apostrophe.doubleDumb.rawValue, Apostrophe.doubleClose.rawValue]
+            case .singleClose, .doubleClose: return []
+            }
+        }
+
+        var openers: [String.Element] {
+            switch self {
+            case .singleDumb, .singleClose: return [Apostrophe.singleDumb.rawValue, Apostrophe.singleOpen.rawValue]
+            case .doubleDumb, .doubleClose: return [Apostrophe.doubleDumb.rawValue, Apostrophe.doubleOpen.rawValue]
+            case .singleOpen, .doubleOpen: return []
+            }
+        }
     }
 
     private struct ApostropheConverter {
@@ -61,27 +77,20 @@ public extension String {
 
         var curlyApostrophe: String.Element {
             if followingStringUntilWhitespace == "s" { return apostrophe.close }
-            if precedingStringUntilWhitespace == nil {
-                return apostrophe.open
-            }
+//            if precedingStringUntilWhitespace == nil || precedingStringUntilWhitespace == "" {
+//                return apostrophe.open
+//            }
             return matchingApostrophe ? apostrophe.open : apostrophe.close
         }
 
         /// `true` if a matching closing apostrophe is found for the current apostrophe
         private var matchingApostrophe: Bool {
-            let closers: [String.Element] = {
-                switch apostrophe {
-                case .singleDumb, .singleOpen: return [Apostrophe.singleDumb.rawValue, Apostrophe.singleClose.rawValue]
-                case .doubleDumb, .doubleOpen: return [Apostrophe.doubleDumb.rawValue, Apostrophe.doubleClose.rawValue]
-                case .singleClose, .doubleClose: return []
-                }
-            }()
-
-            var closerCount = 0
-            string[string.index(after: index)..<string.endIndex].forEach {
-                if closers.contains($0) { closerCount += 1 }
-            }
-            return closerCount % 2 == 1
+            let apostrophesBefore = string[..<index]
+                .filter { apostrophe.openers.contains($0) }.count
+            let apostrophesAfter = string[string.index(after: index)..<string.endIndex]
+                .filter { apostrophe.closers.contains($0) }.count
+//            print("\(apostrophesBefore) -> \(apostrophesAfter)")
+            return apostrophesBefore < apostrophesAfter
         }
 
         /// The string range before the character, but after any preceding whitespace
