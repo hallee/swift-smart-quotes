@@ -6,10 +6,18 @@ final class SmartQuotesTests: XCTestCase {
     private let testCases: [String: String] = [
         "'93": "’93",
         "\"'93\"": "“’93”",
-        "Aren't": "Aren’t",
+        "and then she blurted, \"I thought you said, 'I don't like '80s music'?\"":
+            "and then she blurted, “I thought you said, ‘I don’t like ’80s music’?”",
+        "and then she blurted, \"I thought you said, 'I like '80s music'?\"":
+            "and then she blurted, “I thought you said, ‘I like ’80s music’?”",
+        "aren't": "aren’t",
         "'em": "’em",
-        "Got 'em": "Got ’em",
-        "\"Got 'em\"": "“Got ’em”"
+        "\"Europe's debt crisis\": not good":
+            "“Europe’s debt crisis”: not good",
+        "got 'em": "got ’em",
+        "got 'em good": "got ’em good",
+        "\"got 'em\"": "“got ’em”",
+        "ma'am": "ma’am"
     ]
 
     func testSmartQuotes() {
