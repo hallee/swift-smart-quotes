@@ -6,7 +6,7 @@ extension SmartQuotesTests {
     //   `swift test --generate-linuxmain`
     // to regenerate.
     static let __allTests__SmartQuotesTests = [
-        ("testExample", testExample),
+        ("testSmartQuotes", testSmartQuotes),
     ]
 }
 
