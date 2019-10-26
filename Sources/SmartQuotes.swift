@@ -3,10 +3,10 @@ import Foundation
 public extension String {
 
     var withSmartQuotes: String {
-        withSmartQuotes(Locale.autoupdatingCurrent)
+        withSmartQuotes(nil)
     }
 
-    func withSmartQuotes(_ locale: Locale) -> String {
+    func withSmartQuotes(_ locale: Locale?) -> String {
         var string = self
         /// 'n'
         string = string.replacingOccurrences(of: #"'n'"#, with: "’n’", options: .regularExpression)
@@ -57,22 +57,22 @@ public extension String {
         case doublePrime
         case triplePrime
 
-        func localized(_ locale: Locale) -> String {
+        func localized(_ locale: Locale?) -> String {
             switch self {
             case .openApostrophe:
-                switch locale.languageCode {
+                switch locale?.languageCode {
                 default: return "‘"
                 }
             case .closeApostrophe:
-                switch locale.languageCode {
+                switch locale?.languageCode {
                 default: return "’"
                 }
             case .openQuotation:
-                switch locale.languageCode {
+                switch locale?.languageCode {
                 default: return "“"
                 }
             case .closeQuotation:
-                switch locale.languageCode {
+                switch locale?.languageCode {
                 default: return "”"
                 }
             case .prime: return "′"
