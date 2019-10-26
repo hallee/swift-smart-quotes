@@ -2,10 +2,11 @@ name: Test
 on: [pull_request]
 jobs:
   build:
-    runs-on: macOS-latest
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Build
-      run: swift build -v
-    - name: Run tests
-      run: swift test -v
+    - name: Run Swift tests
+      uses: docker://swift:latest
+      with:
+        entrypoint: swift
+        args: test
