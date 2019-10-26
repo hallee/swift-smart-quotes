@@ -19,6 +19,7 @@ final class SmartQuotesTests: XCTestCase {
             "Founders ask themselves: “Why can’t we get features out the door like we used to in the early days?”",
         "got 'em": "got ’em",
         "\"got 'em\"": "“got ’em”",
+        "\"Kobe Bryant, 6' 6\" tall\"": "“Kobe Bryant, 6′ 6″ tall”",
         "rock 'n' roll": "rock ’n’ roll",
         "she's got 'em": "she’s got ’em",
         "she’s got 'em": "she’s got ’em",
