@@ -10,7 +10,7 @@ import SmartQuotes
 print("\"Crime peaked in the '90s\"".withSmartQuotes) // “Crime peaked in the ’90s”
 ```
 
-### Installation
+## Installation
 
 #### Carthage
 
