@@ -6,7 +6,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Run Swift tests
-      uses: docker://swift/latest
+      uses: docker://swift:latest
       with:
         entrypoint: swift
         args: test
