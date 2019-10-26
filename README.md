@@ -12,6 +12,7 @@ For other localizations, a locale can be provided to `.withSmartQuotes(locale: L
 import SmartQuotes
 
 "\"Crime peaked in the '90s\"".withSmartQuotes   // “Crime peaked in the ’90s”
+
 "\"Crime peaked in the '90s\"".withSmartQuotes(  // „Crime peaked in the ‘90s“
     Locale(identifier: "de")
 )
