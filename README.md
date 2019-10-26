@@ -2,12 +2,19 @@
 
 A simple Swift `String` extension for converting straight apostrophes and quotes in to typographically correct curly versions.
 
+This package provides a `.withSmartQuotes` property on `String`, which defaults to English conversions.
+
+For other localizations, a locale can be provided to `.withSmartQuotes(locale: Locale?)`. Currently only `de`, `fi`, and `sv` are implemented. I’m open to contributions for other localizations!
+
 ## Usage
 
 ```swift
 import SmartQuotes
 
-print("\"Crime peaked in the '90s\"".withSmartQuotes) // “Crime peaked in the ’90s”
+"\"Crime peaked in the '90s\"".withSmartQuotes   // “Crime peaked in the ’90s”
+"\"Crime peaked in the '90s\"".withSmartQuotes(  // „Crime peaked in the ‘90s“
+    Locale(identifier: "de")
+)
 ```
 
 ## Installation
@@ -37,6 +44,6 @@ targets: [
 ]
 ```
 
-### TODO
+## TODO
 
 - [ ] Localizations
