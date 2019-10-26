@@ -3,6 +3,10 @@ import Foundation
 public extension String {
 
     var withSmartQuotes: String {
+        withSmartQuotes(Locale.autoupdatingCurrent)
+    }
+
+    func withSmartQuotes(_ locale: Locale) -> String {
         var string = self
         /// 'n'
         string = string.replacingOccurrences(of: #"'n'"#, with: "’n’", options: .regularExpression)
@@ -42,6 +46,40 @@ public extension String {
             with: replacement,
             options: [.regularExpression, .caseInsensitive]
         )
+    }
+
+    private enum Mark: Equatable {
+        case openApostrophe
+        case closeApostrophe
+        case openQuotation
+        case closeQuotation
+        case prime
+        case doublePrime
+        case triplePrime
+
+        func localized(_ locale: Locale) -> String {
+            switch self {
+            case .openApostrophe:
+                switch locale.languageCode {
+                default: return "‘"
+                }
+            case .closeApostrophe:
+                switch locale.languageCode {
+                default: return "’"
+                }
+            case .openQuotation:
+                switch locale.languageCode {
+                default: return "“"
+                }
+            case .closeQuotation:
+                switch locale.languageCode {
+                default: return "”"
+                }
+            case .prime: return "′"
+            case .doublePrime: return "″"
+            case .triplePrime: return "‴"
+            }
+        }
     }
 
 }
