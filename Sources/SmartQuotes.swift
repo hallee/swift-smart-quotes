@@ -69,20 +69,24 @@ public extension String {
             switch self {
             case .openApostrophe:
                 switch locale?.languageCode {
+                case "de": return "‚"
                 case "fi", "sv": return "’"
                 default: return "‘"
                 }
             case .closeApostrophe:
                 switch locale?.languageCode {
+                case "de": return "‘"
                 default: return "’"
                 }
             case .openQuotation:
                 switch locale?.languageCode {
+                case "de": return "„"
                 case "fi", "sv": return "”"
                 default: return "“"
                 }
             case .closeQuotation:
                 switch locale?.languageCode {
+                case "de": return "“"
                 default: return "”"
                 }
             case .prime: return "′"
